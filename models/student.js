@@ -8,7 +8,7 @@ const StudentSchema = Schema({
 	name: String,
 	lastname: String,
 	maternalName: String,
-	birth: Date,
+	birth: Date
 })
 
 module.exports = mongoose.model('student', StudentSchema)

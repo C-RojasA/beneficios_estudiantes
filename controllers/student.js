@@ -1,11 +1,11 @@
 'use strict'
 
-const Student = require('./model/student')
+const Student = require('../models/student')
 
-function getStudents(req,res) {
+function getStudents(req, res) {
 	Student.find({}, (err, students) => {
 		if (err) return res.status(500).send({message: `Error al realizar la peticion ${err}`})
-		if (!students) return res.status(500).send({message: `No existen datos almacenados` })
+		if (!students) return res.status(404).send({message: `No existen datos almacenados` })
 
 		res.status(200).send({ students })		
 	})
@@ -29,6 +29,7 @@ function saveStudent(req, res) {
 	})
 
 }
+
 
 module.exports = {
 	getStudents,

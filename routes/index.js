@@ -1,8 +1,10 @@
 'use strict'
 
 const express = require('express')
-const studentCrl = require('../controllers/student')
+const studentCtrl = require('../controllers/student')
 const api = express.Router()
 
-api.get('student', studentCtrl.getStudents)
-api.post('student', studentCtrl.saveStudents)
+api.get('/student', studentCtrl.getStudents)
+api.post('/student', studentCtrl.saveStudent)
+
+module.exports = api
