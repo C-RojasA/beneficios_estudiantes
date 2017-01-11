@@ -7,8 +7,8 @@ const StudentSchema = Schema({
 	rut: String,
 	name: String,
 	lastname: String,
-	maternaLastname: String,
+	maternalName: String,
 	birth: Date,
 })
 
-mongoose.model('student', StudentSchema)
+module.exports = mongoose.model('student', StudentSchema)
