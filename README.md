@@ -1,2 +1,2 @@
 # beneficios_estudiantes
-Gestión de beneficios de los estudiantes
+apiREST node.js para gestiónar los beneficios de los estudiantes
