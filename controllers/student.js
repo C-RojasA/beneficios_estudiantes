@@ -11,18 +11,8 @@ function getStudents(req,res) {
 	})
 }
 
-function saveStudent6() {
-	let studentId = req.paramas.studentId
-
-	Student.findById(studentId, (err, student) => {
-		if(err) return status(500).send({message: `Error al realizar la peticion ${err}`})
-		if(!student) return status(500).send({message: `El Estudiante no Existe`})
-
-		res.status(200).send({student})
-	})
-}
-app.post('/api/student', (req, res) => {
-	console.log('POST /api/student')
+function saveStudent(req, res) {
+	console.log('POST /apu/student')
 	console.log(req.body)
 
 	let student = new Student()
@@ -31,11 +21,18 @@ app.post('/api/student', (req, res) => {
 	student.lastname = req.body.lastname
 	student.maternalName = req.body.maternalName
 	student.birth =  req.body.birth
-})
 
-student.save((err, studentStored) => {
-	if(err) res.status(500).send({message: `Error al guardar en la base de datos: ${err} `})
+	student.save((err, studentStored) => {
+		if(err) res.status(500).send({message: `Error al guardar en la base de datos: ${err} `})
 
-	res.status(200).send({student: studentStored})
-})
+		res.status(200).send({student: studentStored})
+	})
+
+}
+
+module.exports = {
+	getStudents,
+	saveStudent
+}
+
 
